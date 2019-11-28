@@ -1,0 +1,30 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__current-group
+        nana
+      .main-header__left-box__member-list
+        member :
+        .main-header__left-box__member-list__member
+          aaa
+    .main-header__edit-btn
+      Edit
+  .messages
+    .message
+      .message__upper-info
+        .message__upper-info__talker
+          ffff
+        .message__upper-info__date
+          2019/11/27
+      .message__text
+        fffff
+  .form
+    .new_message
+      .input-box
+        %input.input-box__text{name: "message[contents]", placeholder: "Type a message", type: "text", value: "", id: "message_content"}/
+        %label.input-box__image{class: "input-box__image", for: "message_image"}
+          = icon('fas', 'image')  
+          %input.input-box__text__file{class: "input-box__image__file", type: "file", name: "message[image]", id: "message_image"}
+      %input.submit-btm{type: "submit", name: "commit", value: "Send", class: "submit-btn", date: { disable: { with: "Send"}}}
+
+  
