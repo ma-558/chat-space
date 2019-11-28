@@ -21,10 +21,10 @@
   .form
     .new_message
       .input-box
-        %input.input-box__text{:name => "message[contents]", :placeholder => "Type a message", :type => "text", :value => "", :id => "message_content"}/
-        %label.input-box__image{:class => "input-box__image", :for =>"message_image"}
+        %input.input-box__text{name: "message[contents]", placeholder: "Type a message", type: "text", value: "", id: "message_content"}/
+        %label.input-box__image{class: "input-box__image", for: "message_image"}
           = icon('fas', 'image')  
-          %input.input-box__text__file{:class => "input-box__image__file", :type => "file", :name => "message[image]", :id => "message_image"}
-      %input.submit-btm{:type => "submit", :name => "commit", :value => "Send", :class => "submit-btn", :date-disable-with => "Send"}
+          %input.input-box__text__file{class: "input-box__image__file", type: "file", name: "message[image]", id: "message_image"}
+      %input.submit-btm{type: "submit", name: "commit", value: "Send", class: "submit-btn", date: { disable: { with: "Send"}}}
 
   
