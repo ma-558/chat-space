@@ -5,7 +5,7 @@
         yaya
       .side-header__box__menu
         .side-header__box__menu__new-group
-          = link_to "groups/new", class: "contents__btn" do
+          = link_to new_group_path do
             = icon('fas', 'edit')
         .side-header__box__menu__edit-user
           = link_to "#", class: "contents__btn" do
@@ -17,4 +17,4 @@
           .group__name
             = group.name
           .group__message
-            メッセージはまだありません。
+            = group.show_last_message

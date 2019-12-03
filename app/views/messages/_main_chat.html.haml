@@ -2,29 +2,22 @@
   .main-header
     .main-header__left-box
       .main-header__left-box__current-group
-        nana
+        = @group.name
       .main-header__left-box__member-list
         member :
         .main-header__left-box__member-list__member
-          aaa
-    .main-header__edit-btn
-      Edit
+          - @group.users.each do |user|
+            = user.name
+    = link_to edit_group_path(@group) do
+      .main-header__edit-btn
+        Edit
   .messages
-    .message
-      .message__upper-info
-        .message__upper-info__talker
-          ffff
-        .message__upper-info__date
-          2019/11/27
-      .message__text
-        fffff
+    = render @messages
   .form
-    .new_message
-      .input-box
-        %input.input-box__text{name: "message[contents]", placeholder: "Type a message", type: "text", value: "", id: "message_content"}/
-        %label.input-box__image{class: "input-box__image", for: "message_image"}
-          = icon('fas', 'image')  
-          %input.input-box__text__file{class: "input-box__image__file", type: "file", name: "message[image]", id: "message_image"}
-      %input.submit-btm{type: "submit", name: "commit", value: "Send", class: "submit-btn", date: { disable: { with: "Send"}}}
-
-  
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
